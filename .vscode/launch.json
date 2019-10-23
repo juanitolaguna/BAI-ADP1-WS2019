@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - PerformanceTests",
+      "request": "launch",
+      "mainClass": "adp1.PerformanceTests",
+      "projectName": "BAI-ADP1-WS2019"
+    }
+  ]
+}
