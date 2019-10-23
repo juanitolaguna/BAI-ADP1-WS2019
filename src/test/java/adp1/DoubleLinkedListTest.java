@@ -104,10 +104,65 @@ public class DoubleLinkedListTest {
     @Test
     public void deleteElemTest() {
         DoubleLinkedList<String> list1 = makeList1();
-        System.out.println(list1);
+        list1.deleteElem("bb");
+        // Creating list2 for comparison purposes
+        DoubleLinkedList<String> list2 = new DoubleLinkedList<>();
+        list2.addFirst("aa");
+        list2.addFirst("cc");
+        list2.addFirst("dd");
 
+        assertEquals(list2, list1);
+
+        // Adding three strings, "bb". One at the begining, one at
+        // position 2 and one at the end. deleteElem(Object elem) should delete all
+        // occurrences of "bb".
+        list1.addFirst("bb");
+        list1.addAt("bb", 2);
+        list1.addAt("bb", 4);
+        list1.deleteElem("bb");
+
+        assertEquals(list2, list1);
     }
 
-    
+    @Test
+    public void hasSuchElementTest() {
+        DoubleLinkedList<String> list1 = makeList1();
+        //assertTrue(list1.hasSuchElement("aa")); <----- hier konnte ich nicht assertTrue benutzen, der
+        // Compiler kennt assertTrue nicht oder junit kennt die Methode nicht, was aber laut API
+        // von junit nicht sein kann
+        // @link https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html
+        assertEquals(true, list1.hasSuchElement("aa"));
+        assertEquals(true, list1.hasSuchElement("bb"));
+        assertEquals(true, list1.hasSuchElement("cc"));
+        assertEquals(true, list1.hasSuchElement("dd"));
+        assertEquals(false, list1.hasSuchElement("a"));
+        assertEquals(false, list1.hasSuchElement(null));
+        assertEquals(false, list1.hasSuchElement(2));
+    }
+
+    @Test
+    public void getValueAtTest() {
+        DoubleLinkedList<String> list1 = makeList1();
+        assertEquals("dd", list1.getValueAt(0));
+        assertEquals("cc", list1.getValueAt(1));
+        assertEquals("bb", list1.getValueAt(2));
+        assertEquals("aa", list1.getValueAt(3));
+    }
+
+    @Test
+    public void sizeTest() {
+        DoubleLinkedList<String> list1 = makeList1();
+        assertEquals(4, list1.size());
+        DoubleLinkedList<String> emptyList = new DoubleLinkedList<>();
+        assertEquals(0, emptyList.size());
+    }
+
+    @Test
+    public void isEmptytest() {
+        DoubleLinkedList<String> list1 = makeList1();
+        assertEquals(false, list1.isEmpty());
+        DoubleLinkedList<String> emptyList = new DoubleLinkedList<>();
+        assertEquals(true, emptyList.isEmpty());
+    }
 
 }
