@@ -127,10 +127,6 @@ public class DoubleLinkedListTest {
     @Test
     public void hasSuchElementTest() {
         DoubleLinkedList<String> list1 = makeList1();
-        //assertTrue(list1.hasSuchElement("aa")); <----- hier konnte ich nicht assertTrue benutzen, der
-        // Compiler kennt assertTrue nicht oder junit kennt die Methode nicht, was aber laut API
-        // von junit nicht sein kann
-        // @link https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html
         assertEquals(true, list1.hasSuchElement("aa"));
         assertEquals(true, list1.hasSuchElement("bb"));
         assertEquals(true, list1.hasSuchElement("cc"));
