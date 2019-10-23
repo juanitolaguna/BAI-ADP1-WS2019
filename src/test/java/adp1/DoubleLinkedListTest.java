@@ -37,7 +37,7 @@ public class DoubleLinkedListTest {
     }
 
     @Test
-    public void addAdTest() {
+    public void addAtTest() {
         DoubleLinkedList<String> list1 = makeList1();
         DoubleLinkedList<String> list2 = makeList2();
         list2.addAt("dd", 0);
@@ -99,6 +99,13 @@ public class DoubleLinkedListTest {
         list2.addFirst("dd");
         list1.deleteLast();
         assertEquals(list2, list1);
+    }
+
+    @Test
+    public void deleteElemTest() {
+        DoubleLinkedList<String> list1 = makeList1();
+        System.out.println(list1);
+
     }
 
     
